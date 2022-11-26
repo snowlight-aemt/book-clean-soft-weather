@@ -10,15 +10,19 @@ public class Scheduler {
 
     private TemperatureSensor temperatureSensor;
 
+    private MonitoringScreen monitoringScreen;
+
     public Scheduler(TemperatureSensor temperatureSensor) {
         this.temperatureSensor = temperatureSensor;
+        this.monitoringScreen = new MonitoringScreen();
     }
 
     public void tic() {
         ticCount++;
         if (ticCount < 60) return;
 
-        this.temperatureSensor.read();
+        double temperature = this.temperatureSensor.read();
+        this.monitoringScreen.displayTemperature(temperature);
 
         ticCount = 0;
     }
