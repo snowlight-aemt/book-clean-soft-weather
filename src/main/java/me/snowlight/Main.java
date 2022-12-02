@@ -1,20 +1,26 @@
 package me.snowlight;
 
-import me.snowlight.temperatureSensor.NimbusV2TemperatureSensor;
+import me.snowlight.temperatureSensor.NimbusV1TemperatureSensor;
+import me.snowlight.temperatureSensor.TemperatureSensor;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scheduler scheduler = new Scheduler(new NimbusV2TemperatureSensor());
+        TemperatureSensor temperatureSensor = new NimbusV1TemperatureSensor();
 
-        for (int i = 0; i < 120; i++) {
-            scheduler.tic();
+        MonitoringScreen monitoringScreen = new MonitoringScreen(temperatureSensor);
+        new Scheduler(temperatureSensor).start();
 
-            try {
-                Thread.sleep(50L);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        Scheduler scheduler = new Scheduler(new NimbusV2TemperatureSensor());
+//
+//        for (int i = 0; i < 120; i++) {
+//            scheduler.tic();
+//
+//            try {
+//                Thread.sleep(50L);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 }

@@ -1,5 +1,7 @@
 package me.snowlight.temperatureSensor;
 
-public abstract class TemperatureSensor {
+import me.snowlight.Observable;
+
+public abstract class TemperatureSensor extends Observable {
     public abstract double read();
 }

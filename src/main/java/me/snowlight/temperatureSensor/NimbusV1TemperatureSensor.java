@@ -9,4 +9,9 @@ public class NimbusV1TemperatureSensor extends TemperatureSensor {
         System.out.println("READ " + this.getClass().getSimpleName());
         return (double) new Random().nextInt(10);
     }
+
+    @Override
+    public double getValue() {
+        return 0;
+    }
 }
