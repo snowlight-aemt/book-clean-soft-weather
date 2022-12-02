@@ -2,6 +2,7 @@ package me.snowlight;
 
 public class MonitoringScreen {
     public MonitoringScreen(Observable observable) {
+        System.out.println("ADD");
         observable.add(new TemperatureObserver(this));
     }
 
