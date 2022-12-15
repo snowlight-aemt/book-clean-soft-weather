@@ -6,9 +6,8 @@ import me.snowlight.temperatureSensor.TemperatureSensor;
 
 public class Main {
     public static void main(String[] args) {
-        // Client
         TemperatureSensor temperatureSensor = new NimbusV1TemperatureSensor(new AlarmClock());
         new MonitoringScreen(temperatureSensor);
-        temperatureSensor.start();
+        temperatureSensor.run();
     }
 }
