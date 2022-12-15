@@ -2,10 +2,7 @@ package me.snowlight.temperatureSensor;
 
 import java.util.Random;
 
-public class NimbusV1TemperatureSensor extends TemperatureSensor {
-    public NimbusV1TemperatureSensor(AlarmClock alarmClock) {
-        super(alarmClock);
-    }
+public class NimbusV1TemperatureSensor implements TemperatureSensorImp {
 
     @Override
     public double read() {
@@ -13,8 +10,4 @@ public class NimbusV1TemperatureSensor extends TemperatureSensor {
         return (double) new Random().nextInt(10);
     }
 
-    @Override
-    public double getValue() {
-        return temperature;
-    }
 }

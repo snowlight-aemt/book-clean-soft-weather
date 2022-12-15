@@ -2,12 +2,15 @@ package me.snowlight.temperatureSensor;
 
 import me.snowlight.Observable;
 
-public abstract class TemperatureSensor extends Observable {
+public class TemperatureSensor extends Observable {
     protected double temperature;
     private AlarmClock alarmClock;
 
-    public TemperatureSensor(AlarmClock alarmClock) {
+    private TemperatureSensorImp temperatureSensorImp;
+
+    public TemperatureSensor(AlarmClock alarmClock, TemperatureSensorImp temperatureSensorImp) {
         this.alarmClock = alarmClock;
+        this.temperatureSensorImp = temperatureSensorImp;
     }
 
     public void run() {
@@ -15,12 +18,15 @@ public abstract class TemperatureSensor extends Observable {
     }
 
     protected void check() {
-        double val = read();
+        double val = temperatureSensorImp.read();
         if (temperature != val) {
             temperature = val;
             notice();
         }
     }
 
-    public abstract double read();
+    @Override
+    public double getValue() {
+        return this.temperature;
+    }
 }
