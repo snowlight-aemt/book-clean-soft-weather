@@ -2,17 +2,32 @@ package me.snowlight.weatherMonitoringSystem;
 
 import me.snowlight.api.StationToolkit;
 import me.snowlight.nimbus1_0.Nimbus1_0Toolkit;
+import me.snowlight.util.Observable;
+import me.snowlight.util.Observer;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class WeatherStation {
-    public static void main(String[] args) {
+    TemperatureSensor temperatureSensor;
 
-        StationToolkit stationToolkit = new Nimbus1_0Toolkit();
-        TemperatureSensor temperatureSensor = new TemperatureSensor(new AlarmClock(), stationToolkit);
-        new MonitoringScreen(temperatureSensor);
-        temperatureSensor.run();
+    public WeatherStation(String tkName) {
+        try {
+            StationToolkit stationToolkit = (StationToolkit) Class.forName(tkName).getConstructor().newInstance();
+            this.temperatureSensor = new TemperatureSensor(new AlarmClock(), stationToolkit);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-//        TemperatureSensor temperatureSensor = new TemperatureSensor(new AlarmClock(), new NimbusV1TemperatureSensor());
-//        new MonitoringScreen(temperatureSensor);
-//        temperatureSensor.run();
+    public void addTempObserver(Observer o) {
+        this.temperatureSensor.add(o);
     }
 }

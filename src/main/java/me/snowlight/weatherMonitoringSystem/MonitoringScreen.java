@@ -3,9 +3,10 @@ package me.snowlight.weatherMonitoringSystem;
 import me.snowlight.util.Observable;
 
 public class MonitoringScreen {
-    public MonitoringScreen(Observable observable) {
-        System.out.println("ADD");
-        observable.add(new TemperatureObserver(this));
+    public MonitoringScreen(WeatherStation ws) {
+        ws.addTempObserver(new TemperatureObserver(this));
+//        System.out.println("ADD");
+//        observable.add(new TemperatureObserver(this));
     }
 
     public void displayTemperature(double temperature) {

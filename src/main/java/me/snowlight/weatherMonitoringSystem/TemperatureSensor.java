@@ -13,18 +13,20 @@ public class TemperatureSensor extends Observable {
     public TemperatureSensor(AlarmClock alarmClock, StationToolkit stationToolkit) {
         this.alarmClock = alarmClock;
         this.temperatureSensorImp = stationToolkit.makeTemperature();
-    }
 
-    public void run() {
         this.alarmClock.wakeEvent(1000, this::check);
     }
 
     protected void check() {
-        double val = temperatureSensorImp.read();
+        double val = read();
         if (temperature != val) {
             temperature = val;
             notice();
         }
+    }
+
+    private double read() {
+        return temperatureSensorImp.read();
     }
 
     @Override
