@@ -1,6 +1,7 @@
 package me.snowlight.temperatureSensor;
 
 import me.snowlight.Observable;
+import me.snowlight.StationToolkit;
 
 public class TemperatureSensor extends Observable {
     protected double temperature;
@@ -8,9 +9,9 @@ public class TemperatureSensor extends Observable {
 
     private TemperatureSensorImp temperatureSensorImp;
 
-    public TemperatureSensor(AlarmClock alarmClock, TemperatureSensorImp temperatureSensorImp) {
+    public TemperatureSensor(AlarmClock alarmClock, StationToolkit stationToolkit) {
         this.alarmClock = alarmClock;
-        this.temperatureSensorImp = temperatureSensorImp;
+        this.temperatureSensorImp = stationToolkit.makeTemperature();
     }
 
     public void run() {
