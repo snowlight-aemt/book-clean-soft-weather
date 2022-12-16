@@ -1,8 +1,7 @@
 package me.snowlight;
 
-import me.snowlight.api.StationToolkit;
-import me.snowlight.nimbus1_0.Nimbus1_0Toolkit;
-import me.snowlight.weatherMonitoringSystem.*;
+import me.snowlight.ui.MonitoringScreen;
+import me.snowlight.weatherMonitoringSystem.WeatherStation;
 
 public class Main {
     public static void main(String[] args) {

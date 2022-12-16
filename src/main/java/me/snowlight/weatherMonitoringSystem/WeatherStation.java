@@ -1,8 +1,6 @@
 package me.snowlight.weatherMonitoringSystem;
 
 import me.snowlight.api.StationToolkit;
-import me.snowlight.nimbus1_0.Nimbus1_0Toolkit;
-import me.snowlight.util.Observable;
 import me.snowlight.util.Observer;
 
 import java.lang.reflect.InvocationTargetException;

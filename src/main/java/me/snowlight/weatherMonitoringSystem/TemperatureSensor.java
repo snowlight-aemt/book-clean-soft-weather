@@ -1,8 +1,8 @@
 package me.snowlight.weatherMonitoringSystem;
 
-import me.snowlight.util.Observable;
 import me.snowlight.api.StationToolkit;
 import me.snowlight.api.TemperatureSensorImp;
+import me.snowlight.util.Observable;
 
 public class TemperatureSensor extends Observable {
     protected double temperature;
