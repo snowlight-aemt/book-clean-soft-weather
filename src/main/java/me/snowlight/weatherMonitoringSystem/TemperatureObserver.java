@@ -1,4 +1,6 @@
-package me.snowlight;
+package me.snowlight.weatherMonitoringSystem;
+
+import me.snowlight.util.Observer;
 
 public class TemperatureObserver implements Observer {
     private MonitoringScreen monitoringScreen;

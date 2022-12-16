@@ -1,10 +1,9 @@
-package me.snowlight;
+package me.snowlight.weatherMonitoringSystem;
 
-import me.snowlight.temperatureSensor.*;
+import me.snowlight.api.StationToolkit;
+import me.snowlight.nimbus1_0.Nimbus1_0Toolkit;
 
-import java.lang.reflect.InvocationTargetException;
-
-public class Main {
+public class WeatherStation {
     public static void main(String[] args) {
 
         StationToolkit stationToolkit = new Nimbus1_0Toolkit();

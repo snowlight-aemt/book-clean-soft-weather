@@ -1,4 +1,6 @@
-package me.snowlight;
+package me.snowlight.weatherMonitoringSystem;
+
+import me.snowlight.util.Observable;
 
 public class MonitoringScreen {
     public MonitoringScreen(Observable observable) {

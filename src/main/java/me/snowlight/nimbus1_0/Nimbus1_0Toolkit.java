@@ -1,6 +1,7 @@
-package me.snowlight.temperatureSensor;
+package me.snowlight.nimbus1_0;
 
-import me.snowlight.StationToolkit;
+import me.snowlight.api.StationToolkit;
+import me.snowlight.api.TemperatureSensorImp;
 
 public class Nimbus1_0Toolkit implements StationToolkit {
     @Override

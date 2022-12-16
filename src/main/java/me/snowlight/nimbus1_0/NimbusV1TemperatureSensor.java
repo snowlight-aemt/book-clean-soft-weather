@@ -1,4 +1,6 @@
-package me.snowlight.temperatureSensor;
+package me.snowlight.nimbus1_0;
+
+import me.snowlight.api.TemperatureSensorImp;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package me.snowlight;
+package me.snowlight.util;
 
 import java.util.ArrayList;
 import java.util.List;

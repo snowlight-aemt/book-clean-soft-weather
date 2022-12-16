@@ -1,6 +1,6 @@
-package me.snowlight.temperatureSensor;
+package me.snowlight.weatherMonitoringSystem;
 
-import me.snowlight.AlarmClockListener;
+import me.snowlight.api.AlarmClockListener;
 
 public class AlarmClock {
     public void wakeEvent(int interval, AlarmClockListener listener) {
