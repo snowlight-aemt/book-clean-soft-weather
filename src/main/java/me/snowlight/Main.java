@@ -8,4 +8,5 @@ public class Main {
         WeatherStation weatherStation = new WeatherStation("me.snowlight.nimbus1_0.Nimbus1_0Toolkit");
         MonitoringScreen monitoringScreen = new MonitoringScreen(weatherStation);
 
-    }}
+    }
+}

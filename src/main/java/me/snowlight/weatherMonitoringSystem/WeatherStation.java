@@ -11,7 +11,7 @@ public class WeatherStation {
     public WeatherStation(String tkName) {
         try {
             StationToolkit stationToolkit = (StationToolkit) Class.forName(tkName).getConstructor().newInstance();
-            this.temperatureSensor = new TemperatureSensor(new AlarmClock(), stationToolkit);
+            this.temperatureSensor = new TemperatureSensor(new AlarmClock(stationToolkit), stationToolkit);
         } catch (InstantiationException e) {
             throw new RuntimeException(e);
         } catch (IllegalAccessException e) {
