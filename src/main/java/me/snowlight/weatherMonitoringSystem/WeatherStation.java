@@ -2,10 +2,11 @@ package me.snowlight.weatherMonitoringSystem;
 
 import me.snowlight.api.StationToolkit;
 import me.snowlight.util.Observer;
+import me.snowlight.weatherStationComponent.WeatherStationComponent;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class WeatherStation {
+public class WeatherStation implements WeatherStationComponent {
     TemperatureSensor temperatureSensor;
 
     public WeatherStation(String tkName) {
@@ -25,6 +26,8 @@ public class WeatherStation {
         }
     }
 
+
+    @Override
     public void addTempObserver(Observer o) {
         this.temperatureSensor.add(o);
     }

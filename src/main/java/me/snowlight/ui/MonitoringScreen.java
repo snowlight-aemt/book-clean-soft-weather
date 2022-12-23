@@ -1,13 +1,10 @@
 package me.snowlight.ui;
 
-import me.snowlight.weatherMonitoringSystem.TemperatureObserver;
-import me.snowlight.weatherMonitoringSystem.WeatherStation;
+import me.snowlight.weatherStationComponent.WeatherStationComponent;
 
 public class MonitoringScreen {
-    public MonitoringScreen(WeatherStation ws) {
-        ws.addTempObserver(new TemperatureObserver(this));
-//        System.out.println("ADD");
-//        observable.add(new TemperatureObserver(this));
+    public MonitoringScreen(WeatherStationComponent wsc) {
+        wsc.addTempObserver(new TemperatureObserver(this));
     }
 
     public void displayTemperature(double temperature) {

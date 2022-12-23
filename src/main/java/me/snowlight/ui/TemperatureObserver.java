@@ -1,6 +1,5 @@
-package me.snowlight.weatherMonitoringSystem;
+package me.snowlight.ui;
 
-import me.snowlight.ui.MonitoringScreen;
 import me.snowlight.util.Observer;
 
 public class TemperatureObserver implements Observer {
