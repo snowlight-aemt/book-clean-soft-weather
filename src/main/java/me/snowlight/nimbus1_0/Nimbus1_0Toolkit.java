@@ -8,4 +8,9 @@ public class Nimbus1_0Toolkit implements StationToolkit {
     public TemperatureSensorImp makeTemperature() {
         return new NimbusV1TemperatureSensor();
     }
+
+    @Override
+    public me.snowlight.api.AlarmClockImp getAlarmClock() {
+        return new AlarmClockImp();
+    }
 }

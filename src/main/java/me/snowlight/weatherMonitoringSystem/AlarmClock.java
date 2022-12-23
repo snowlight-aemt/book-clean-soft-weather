@@ -1,36 +1,35 @@
 package me.snowlight.weatherMonitoringSystem;
 
-import me.snowlight.api.AlarmClockListener;
+import me.snowlight.api.AlarmClockImp;
+import me.snowlight.api.ClockListener;
+import me.snowlight.api.StationToolkit;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AlarmClock {
 
-    Map<AlarmClockListener, Integer> listeners = new HashMap<>();
+    private final AlarmClockImp alarmClockImp;
+    Map<AlarmListener, Integer> listeners = new HashMap<>();
 
-//    Integer previousTime;
-
-    public void clockPulse() {
-//        previousTime += LocalDateTime.now().getSecond();
-//
-//        listeners.forEach((listener, interval) -> {
-//            if (previousTime >= interval / 1000) {
-//                listener.wakeUp();
-//            }
-//        });
+    public AlarmClock(StationToolkit stationToolkit) {
+        this.alarmClockImp = stationToolkit.getAlarmClock();
+        alarmClockImp.register(new ClockListener() {
+            @Override
+            public void tic() {
+                AlarmClock.this.clockPulse();
+            }
+        });
     }
 
-    public void wakeEvent(int interval, AlarmClockListener listener) {
+    // TODO 현재는 interval 를 적용하지 못한다...;
+    public void clockPulse() {
+        listeners.forEach((listener, interval) -> {
+            listener.wakeUp();
+        });
+    }
+
+    public void wakeEvent(int interval, AlarmListener listener) {
         listeners.put(listener, interval);
-        listener.wakeUp();
-//        while (true) {
-//            try {
-//                Thread.sleep(interval);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//            listener.wakeUp();
-//        }
     }
 }
